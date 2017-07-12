@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CreatorLib.iml" filepath="$PROJECT_DIR$/CreatorLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/creator-lib.iml" filepath="$PROJECT_DIR$/.idea/modules/creator-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/creator-lib_main.iml" filepath="$PROJECT_DIR$/.idea/modules/creator-lib_main.iml" group="creator-lib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/creator-lib_test.iml" filepath="$PROJECT_DIR$/.idea/modules/creator-lib_test.iml" group="creator-lib" />
     </modules>
   </component>
 </project>
