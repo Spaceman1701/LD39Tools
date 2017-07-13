@@ -60,4 +60,33 @@ public class Color {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        int r = red();
+        int g = green();
+        int b = blue();
+        int a = alpha();
+
+        return "Color: <" + r + ", " + g + ", " + b + ", " + a + ">, hex = "
+                + Integer.toHexString((int)color & 0xFF);
+    }
+
+
+    public static Color resolveColor(int r, int g, int b, int a) {
+        boolean resolvedAlpha = a >= 128;
+        r = Math.max(Math.min(r, 255), 0);
+        b = Math.max(Math.min(b, 255), 0);
+        g = Math.max(Math.min(g, 255), 0);
+
+        r = shrinkRange(r);
+        g = shrinkRange(g);
+        b = shrinkRange(b);
+
+        return new Color(r, g, b, resolvedAlpha);
+    }
+
+    private static int shrinkRange(int v) {
+        return (v * 32) / 256;
+    }
 }

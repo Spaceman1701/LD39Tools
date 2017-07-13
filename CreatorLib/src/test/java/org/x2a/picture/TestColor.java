@@ -3,6 +3,8 @@ package org.x2a.picture;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Random;
+
 /**
  * Created by ethan on 7/12/17.
  */
@@ -39,5 +41,26 @@ public class TestColor {
         Color c2 = new Color(r1, g1, b1, isAlpha);
         Assert.assertNotNull(c2);
         Assert.assertEquals(c1, c2);
+    }
+
+
+    @Test
+    public void testResolveColorBounded() {
+        long seed = 0xF0F0F0F;
+        Random random = new Random(seed);
+
+        for (int i = 0; i < 100; i++) {
+            int r = random.nextInt(256);
+            int b = random.nextInt(256);
+            int g = random.nextInt(256);
+            int a = random.nextInt(256);
+
+            Color c = Color.resolveColor(r, g, b, a);
+            Assert.assertNotNull(c.toString(), c);
+
+            if (r % 32 == 0) {
+                Assert.assertEquals(c.toString(), (byte)(r / 32), c.red());
+            }
+        }
     }
 }
