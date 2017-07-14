@@ -6,10 +6,10 @@ package org.x2a.picture;
 public class Color {
     private static final int BITS = 0x0000001F;
 
-    private static final short RED = (short)0xF800;
-    private static final short GREEN = (short)0x07C0;
-    private static final short BLUE = (short)0x003E;
-    private static final short ALPHA = (short)0x0001;
+    private static final int RED = 0xF800;
+    private static final int GREEN = 0x07C0;
+    private static final int BLUE = 0x003E;
+    private static final int ALPHA = 0x0001;
 
     private static final int RED_SHIFT = 11;
     private static final int GREEN_SHIFT = 6;
@@ -87,6 +87,6 @@ public class Color {
     }
 
     private static int shrinkRange(int v) {
-        return (v * 32) / 256;
+        return v / 8;
     }
 }

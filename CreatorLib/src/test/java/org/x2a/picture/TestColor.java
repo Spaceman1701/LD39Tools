@@ -59,8 +59,21 @@ public class TestColor {
             Assert.assertNotNull(c.toString(), c);
 
             if (r % 32 == 0) {
-                Assert.assertEquals(c.toString(), (byte)(r / 32), c.red());
+                Assert.assertEquals(c.toString(), (r / 8), (int)c.red() & 0xFF);
             }
         }
+    }
+
+    @Test
+    public void testResolveWhite() {
+        int r = 255;
+        int g = 255;
+        int b = 255;
+        int a = 255;
+
+        Color c = Color.resolveColor(r, g, b, a);
+        System.out.println(Integer.toBinaryString(c.getColor()));
+
+        Assert.assertEquals(0xFFFF, (c.getColor() & 0xFFFF));
     }
 }
