@@ -16,10 +16,10 @@ public class Picture {
         if (bytes.length / 4 != PICTURE_SIZE) {
             throw new IllegalArgumentException("Invalid image size");
         }
-        pixels = buildImange(bytes);
+        pixels = buildImage(bytes);
     }
 
-    private Color[] buildImange(byte[] bytes) {
+    private Color[] buildImage(byte[] bytes) {
         Color[] colors = new Color[bytes.length / 4];
         for (int i = 0; i < bytes.length; i+=4) { //4 bytes per pixel
             int r = bytes[i] & 0xFF;
