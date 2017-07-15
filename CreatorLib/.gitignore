@@ -29,8 +29,8 @@ cmake-build-debug/
 
 # IntelliJ
 /out/
-/build/
-/.gradle/
+build/
+.gradle/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -48,3 +48,6 @@ crashlytics-build.properties
 fabric.properties
 
 *.log
+*.bin
+.class
+
