@@ -1,6 +1,7 @@
 package org.x2a.picture;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
@@ -11,10 +12,15 @@ import java.io.IOException;
  */
 public class TestPicture {
 
+    @Before
+    public void setUp() {
+        System.setProperty("java.awt.headless", "true");
+    }
+
     @Test
     public void createPictureFromPng() throws IOException {
         File testPng = new File(getClass().getClassLoader().getResource("test.png").getFile());
-        PngImage image = new PngImage(testPng);
+        PngPicture image = new PngPicture(testPng);
         Assert.assertEquals(8, image.getWidth());
         Assert.assertEquals(8, image.getHeight());
         Assert.assertEquals(8 * 8 * 3, image.getBytes().length);

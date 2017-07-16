@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by ethan on 7/13/17.
  */
-public class PngImage {
+public class PngPicture {
 
     private final int width;
     private final int height;
@@ -21,7 +21,7 @@ public class PngImage {
 
     private final byte[] bytes;
 
-    public PngImage(File file) throws IOException {
+    public PngPicture(File file) throws IOException {
         BufferedImage bufferedImage = ImageIO.read(file);
         WritableRaster raster = bufferedImage.getRaster();
         DataBufferByte dataBuffer = (DataBufferByte) raster.getDataBuffer();

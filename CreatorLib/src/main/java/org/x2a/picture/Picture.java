@@ -9,25 +9,29 @@ public class Picture {
 
     private final Color[] pixels;
 
-    public Picture(byte[] bytes) {
-        if (bytes.length % 4 != 0) {
+    public Picture(byte[] bytes, boolean hasAlpha) {
+        int depth = hasAlpha ? 4 : 3;
+        if (bytes.length % depth != 0) {
             throw new IllegalArgumentException("Invalid image size!");
         }
-        if (bytes.length / 4 != PICTURE_SIZE) {
+        if (bytes.length / depth != PICTURE_SIZE) {
             throw new IllegalArgumentException("Invalid image size");
         }
-        pixels = buildImage(bytes);
+        pixels = buildImage(bytes, depth);
     }
 
-    private Color[] buildImage(byte[] bytes) {
-        Color[] colors = new Color[bytes.length / 4];
-        for (int i = 0; i < bytes.length; i+=4) { //4 bytes per pixel
+    private Color[] buildImage(byte[] bytes, int depth) {
+        Color[] colors = new Color[bytes.length / depth];
+        for (int i = 0; i < bytes.length; i += depth) { //4 bytes per pixel
             int r = bytes[i] & 0xFF;
             int g = bytes[i + 1] & 0xFF;
             int b = bytes[i + 2] & 0xFF;
-            int a = bytes[i + 3] & 0xFF;
+            int a = 255;
+            if (depth == 4) {
+                a = bytes[i + 3] & 0xFF;
+            }
             Color c = Color.resolveColor(r, g, b, a);
-            colors[i / 4] = c;
+            colors[i / depth] = c;
         }
         return colors;
     }

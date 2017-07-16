@@ -2,7 +2,9 @@ package org.x2a;
 
 
 import org.apache.log4j.*;
+import org.x2a.picture.PngPicture;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -16,7 +18,8 @@ public class TerminalApplication {
 
     private static final Logger log = Logger.getLogger(TerminalApplication.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        System.setProperty("java.awt.headless", "true");
         try {
             configureLogging();
         } catch (IOException e) {

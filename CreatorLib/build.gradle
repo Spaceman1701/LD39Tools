@@ -5,6 +5,13 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
+allprojects {
+    tasks.withType(JavaForkOptions) {
+        // Forked processes like GradleWorkerMain for tests won't steal focus!
+        jvmArgs '-Djava.awt.headless=true'
+    }
+}
+
 repositories {
     mavenCentral()
 }
