@@ -1,5 +1,7 @@
 package org.x2a.picture;
 
+import java.util.*;
+
 /**
  * Created by ethan on 7/13/17.
  */
@@ -34,5 +36,21 @@ public class Picture {
             colors[i / depth] = c;
         }
         return colors;
+    }
+
+    public Color[] getPixels() {
+        return pixels;
+    }
+
+    public Color[] getUniqueColors() {
+        Set<Color> colors = new HashSet<>();
+        for (Color c : this.pixels) {
+            if (colors.contains(c)) {
+                colors.add(c);
+            }
+        }
+        Color[] output = new Color[colors.size()];
+        colors.toArray(output);
+        return output;
     }
 }

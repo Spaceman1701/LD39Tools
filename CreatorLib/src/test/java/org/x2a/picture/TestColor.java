@@ -72,8 +72,6 @@ public class TestColor {
         int a = 255;
 
         Color c = Color.resolveColor(r, g, b, a);
-        System.out.println(Integer.toBinaryString(c.getColor()));
-
         Assert.assertEquals(0xFFFF, (c.getColor() & 0xFFFF));
     }
 }

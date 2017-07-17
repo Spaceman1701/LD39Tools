@@ -72,6 +72,10 @@ public class Color {
                 + Integer.toHexString((int)color & 0xFF);
     }
 
+    @Override
+    public int hashCode() {
+        return color;
+    }
 
     public static Color resolveColor(int r, int g, int b, int a) {
         boolean resolvedAlpha = a >= 128;
