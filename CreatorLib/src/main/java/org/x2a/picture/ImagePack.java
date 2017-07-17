@@ -18,20 +18,23 @@ public class ImagePack {
             this.maxPictures = maxPictures;
             this.maxPallets = maxPallets;
             this.picutes = new ArrayList<>();
+            this.pallets = new ArrayList<>();
         }
 
-        public void addPicture(Picture p) {
+        public ImagePackBuilder addPicture(Picture p) {
             if (picutes.size() + 1 >= maxPictures) {
                 throw new IllegalStateException("too many images");
             }
             this.picutes.add(p);
+            return this;
         }
 
-        public void addPallets(Pallet p) {
+        public ImagePackBuilder addPallets(Pallet p) {
             if (pallets.size() + 1 >= maxPallets) {
                 throw new IllegalStateException("too many pallets");
             }
             this.pallets.add(p);
+            return this;
         }
 
         public ImagePack build() {

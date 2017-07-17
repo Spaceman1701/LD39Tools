@@ -2,6 +2,9 @@ package org.x2a;
 
 
 import org.apache.log4j.*;
+import org.x2a.picture.ImagePack;
+import org.x2a.picture.Pallet;
+import org.x2a.picture.Picture;
 import org.x2a.picture.PngPicture;
 
 import java.io.File;
@@ -25,6 +28,8 @@ public class TerminalApplication {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
     }
 
     private static void configureLogging() throws IOException {
